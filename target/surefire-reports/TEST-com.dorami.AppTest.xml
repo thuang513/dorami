@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuite failures="0" time="0.025" errors="0" skipped="0" tests="1" name="com.dorami.AppTest">
+  <properties>
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
+    <property name="sun.boot.library.path" value="/lib/java7/jre/lib/i386"/>
+    <property name="java.vm.version" value="21.1-b02"/>
+    <property name="java.vm.vendor" value="Oracle Corporation"/>
+    <property name="java.vendor.url" value="http://java.oracle.com/"/>
+    <property name="path.separator" value=":"/>
+    <property name="java.vm.name" value="Java HotSpot(TM) Server VM"/>
+    <property name="file.encoding.pkg" value="sun.io"/>
+    <property name="user.country" value="US"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="sun.os.patch.level" value="unknown"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="user.dir" value="/home/thuang513/Projects/dorami"/>
+    <property name="java.runtime.version" value="1.7.0_01-b08"/>
+    <property name="java.awt.graphicsenv" value="sun.awt.X11GraphicsEnvironment"/>
+    <property name="basedir" value="/home/thuang513/Projects/dorami"/>
+    <property name="java.endorsed.dirs" value="/lib/java7/jre/lib/endorsed"/>
+    <property name="os.arch" value="i386"/>
+    <property name="surefire.real.class.path" value="/tmp/surefirebooter5460988017174424360.jar"/>
+    <property name="java.io.tmpdir" value="/tmp"/>
+    <property name="line.separator" value="
+"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="os.name" value="Linux"/>
+    <property name="sun.jnu.encoding" value="UTF-8"/>
+    <property name="java.library.path" value="/usr/java/packages/lib/i386:/lib:/usr/lib"/>
+    <property name="surefire.test.class.path" value="/home/thuang513/Projects/dorami/target/test-classes:/home/thuang513/Projects/dorami/target/classes:/home/thuang513/.m2/repository/junit/junit/3.8.1/junit-3.8.1.jar:"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="java.class.version" value="51.0"/>
+    <property name="sun.management.compiler" value="HotSpot Tiered Compilers"/>
+    <property name="os.version" value="3.0.0-16-generic-pae"/>
+    <property name="user.home" value="/home/thuang513"/>
+    <property name="user.timezone" value=""/>
+    <property name="java.awt.printerjob" value="sun.print.PSPrinterJob"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="java.specification.version" value="1.7"/>
+    <property name="user.name" value="thuang513"/>
+    <property name="java.class.path" value="/home/thuang513/Projects/dorami/target/test-classes:/home/thuang513/Projects/dorami/target/classes:/home/thuang513/.m2/repository/junit/junit/3.8.1/junit-3.8.1.jar:"/>
+    <property name="java.vm.specification.version" value="1.7"/>
+    <property name="sun.arch.data.model" value="32"/>
+    <property name="java.home" value="/lib/java7/jre"/>
+    <property name="sun.java.command" value="/tmp/surefirebooter5460988017174424360.jar /tmp/surefire7216321465378966346tmp /tmp/surefire4993139556245022398tmp"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="user.language" value="en"/>
+    <property name="awt.toolkit" value="sun.awt.X11.XToolkit"/>
+    <property name="java.vm.info" value="mixed mode"/>
+    <property name="java.version" value="1.7.0_01"/>
+    <property name="java.ext.dirs" value="/lib/java7/jre/lib/ext:/usr/java/packages/lib/ext"/>
+    <property name="sun.boot.class.path" value="/lib/java7/jre/lib/resources.jar:/lib/java7/jre/lib/rt.jar:/lib/java7/jre/lib/sunrsasign.jar:/lib/java7/jre/lib/jsse.jar:/lib/java7/jre/lib/jce.jar:/lib/java7/jre/lib/charsets.jar:/lib/java7/jre/classes"/>
+    <property name="java.vendor" value="Oracle Corporation"/>
+    <property name="localRepository" value="/home/thuang513/.m2/repository"/>
+    <property name="file.separator" value="/"/>
+    <property name="java.vendor.url.bug" value="http://bugreport.sun.com/bugreport/"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="sun.cpu.isalist" value=""/>
+  </properties>
+  <testcase time="0.002" classname="com.dorami.AppTest" name="testApp"/>
+</testsuite>
