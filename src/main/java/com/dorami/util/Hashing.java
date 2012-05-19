@@ -20,4 +20,12 @@ public class Hashing {
   public static int multiplyHash(int k) {
     return ((int)Math.floor(MULTIPLY_FACTOR * (k * FACTOR % 1)));
   }
+
+  /**
+   *  Multiply hashing function is based on the method described by Cormen,
+   *  Leiserson, Rivest, and Stein in Introductions to Algorithms (2008).
+   */
+  public static int multiplyHash(double k) {
+    return ((int)Math.floor(MULTIPLY_FACTOR * (k * FACTOR % 1)));
+  }
 }

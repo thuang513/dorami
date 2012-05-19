@@ -5,23 +5,24 @@ import com.dorami.util.Hashing;
 
 public class TwoDimDataPoint {
 	
-	private int x;
+	private double x;
 
-	private int y;
+	private double y;
 
-	public TwoDimDataPoint(int x, int y) {
+	public TwoDimDataPoint(double x, double y) {
 		this.x = x;
 		this.y = y;
 	}
 
-	public int getX() {
+	public double getX() {
 		return x;
 	}
 
-	public int getY() {
+	public double getY() {
 		return y;
 	}
 
+  /*
 	public Double getEuclideanDistance(TwoDimDataPoint other) {
 		if (!(other instanceof TwoDimDataPoint)) {
 			throw new
@@ -34,6 +35,7 @@ public class TwoDimDataPoint {
 		double y_dist = Math.pow((double)y - otherEuclideanPoint.getY(), 2.0);
 		return new Double((x_dist+y_dist)*-1.0);
 	}
+  */
 
 	public boolean equals(Object other) {
 		if (!(other instanceof TwoDimDataPoint)) {

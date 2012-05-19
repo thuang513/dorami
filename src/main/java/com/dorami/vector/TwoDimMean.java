@@ -1,31 +1,50 @@
 package com.dorami.vector;
 
 
-import com.dorami.clustering.ClusterScores;
+import com.dorami.clustering.GaussianMixtureModel;
 import com.dorami.data.TwoDimDataPoint;
+
+import java.util.List;
+import java.util.logging.Logger;
+import java.util.Random;
 
 public class TwoDimMean {
   
+  /** 
+	 *  Setup the logger 
+	 */
+	private static final Logger LOGGER = 
+		Logger.getLogger(TwoDimMean.class.getName());
+
   private List<TwoDimDataPoint> data; 
   
   private double meanX;
   
   private double meanY;
 
-  private ClusterScores weights;
+  private GaussianMixtureModel weights;
   
   private int cluster;
 
   public TwoDimMean(List<TwoDimDataPoint> data, 
-                    ClusteringScores weights,
+                    GaussianMixtureModel weights,
                     int cluster) {
     this(data, 0.0, 0.0, weights, cluster);
+    // Randomly grab initial meanX and meanY from some data point.
+    Random r = new Random();
+    int randomPoint = r.nextInt(data.size());
+    TwoDimDataPoint random = data.get(randomPoint);
+    meanX = random.getX();
+    meanY = random.getY();
+
+    // DEBUG
+    System.out.println("# Initial mean = " + meanX + "," + meanY);
   }
 
   public TwoDimMean(List<TwoDimDataPoint> data, 
                     double meanX, 
                     double meanY,
-                    ClusteringScores weights,
+                    GaussianMixtureModel weights,
                     int cluster) {
     this.data = data;
     this.meanX = meanX;
@@ -42,27 +61,30 @@ public class TwoDimMean {
     double sumOfX = 0.0;
     double sumOfY = 0.0;
 
-    if (weights.length != data.size()) {
-      System.err.println("ERROR! Size mismatch in mean!");
-    }
-
-    for (int i = 0; i < weights.length; ++i) {
-      TwoDimDataPoint d = data.get(point);
-      double weight = weights.getWeight(i, cluster);
-      sumOfX += weights * d.getX();
-      sumOfY += weights * d.getY();
+    for (int i = 0; i < data.size(); ++i) {
+      TwoDimDataPoint d = data.get(i);
+      double dataWeight = weights.getWeight(i, cluster);
+      sumOfX += dataWeight * d.getX();
+      sumOfY += dataWeight * d.getY();
     }
 
     double clusterTotal = weights.getClusterTotal(cluster);
+
+    // DEBUG
+    //    LOGGER.info("cluster= " + cluster + " clusterTotal= " + clusterTotal);
+    //    System.out.println("sumOfX = " + sumOfX + " sumOfY = " + sumOfY + " | Cluster total= " +clusterTotal);
     meanX = sumOfX/clusterTotal;
     meanY = sumOfY/clusterTotal;
+
+    //    System.out.println("" + meanX + "," + meanY);
+
   }
   
-  public getMeanX() {
+  public double getMeanX() {
     return meanX;
   }
 
-  public getMeanY() {
+  public double getMeanY() {
     return meanY;
   }
 }
