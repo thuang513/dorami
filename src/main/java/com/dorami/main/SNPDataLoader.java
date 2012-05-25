@@ -19,9 +19,12 @@ import org.apache.commons.cli.OptionBuilder;
 import org.apache.commons.cli.ParseException;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.hbase.HBaseConfiguration;
+import org.apache.hadoop.hbase.client.Get;
 import org.apache.hadoop.hbase.client.HTable;
 import org.apache.hadoop.hbase.client.Put;
+import org.apache.hadoop.hbase.client.Result;
 import org.apache.hadoop.hbase.util.Bytes;
+
 
 /**
  *  A quick/hacked-up class used to load SNP intensity data into an HTable.
@@ -59,26 +62,46 @@ public class SNPDataLoader {
 			             .create(HELP);
 
 		options.addOption(snpFolder);
+		options.addOption(rsidMapFile);
 		options.addOption(help);
 	}
 
 
 
   private static Put addSNP(String rsid,
-                            String data) {
+														String data,
+														HTable table) {
+		final byte[] COLUMN_FAMILY = Bytes.toBytes("raw");
     final byte[] QUALIFIER = Bytes.toBytes("intensity-data");
     byte[] rsidBytes = Bytes.toBytes(rsid);
-    byte[] dataBytes = Bytes.toBytes(data);
-    Put result = new Put(rsidBytes);
-    result.add(rsidBytes,
-               QUALIFIER,
-               dataBytes);
-    return result;
+
+		// Check to see if the row already exists
+		Get get = new Get(rsidBytes);
+		get.addColumn(COLUMN_FAMILY, QUALIFIER);
+
+		Result result = null;
+		try {
+			result = table.get(get);
+		} catch (IOException ioe) {
+			System.err.println("Couldn't search for results!");
+			ioe.printStackTrace();
+			return null;
+		}
+
+		StringBuilder dataToAdd = new StringBuilder();
+		if (!result.isEmpty()) {
+			byte[] previousData = result.getValue(COLUMN_FAMILY, QUALIFIER);
+			dataToAdd.append(Bytes.toString(previousData));
+		}
+
+		byte[] newData = Bytes.toBytes(dataToAdd.append(data).toString());
+		Put put = new Put(rsidBytes);
+		put.add(COLUMN_FAMILY, QUALIFIER,  newData);
+    return put;
   }
 
   private static void processPuts(HTable table,
-                                  List<Put> puts) {
-
+																	List<Put> puts) {
     if (table == null) {
       LOGGER.warning("Couldn't get HTable!");
       return;
@@ -94,8 +117,11 @@ public class SNPDataLoader {
 			table.put(puts);
 		} catch (IOException ioe) {
 			LOGGER.warning("Erroring in putting row to HTable!");
+			ioe.printStackTrace();
       return;
 		}
+
+		LOGGER.info("Added " + puts.size() + "SNPs to table.");
   }
 
   private static void readData(String domFile, 
@@ -119,32 +145,34 @@ public class SNPDataLoader {
     final int BATCH_LIMIT = 10000;
     List<Put> puts = new ArrayList<Put>(BATCH_LIMIT);
 
-
     // 0. read the headers to get the person id.
     //    also make sure the headers match.
     String domBuffer = dom.readLine();
     String weakBuffer = weak.readLine();
-    if (domBuffer != weakBuffer) {
+    if (!domBuffer.equals(weakBuffer)) {
       LOGGER.severe("The headers do not match!");
+			System.err.println("dom = " + domBuffer);
+			System.err.println("weakBuffer = " + weakBuffer);
       return;
     }
 
-    String[] person_id = domBuffer.replace("\"\'", "").split(" ");
-
+		System.out.println(domBuffer.replaceAll("\"",""));
+    String[] person_id = domBuffer.replaceAll("\"", "").split(" ");
+		
     final int SNP_ID = 0;
     while ((domBuffer = dom.readLine()) != null &&
            (weakBuffer = weak.readLine()) != null) {
 
       // 1. translate snp to rsid
-      String domData[] = domBuffer.split(" ");
-      String weakData[] = domBuffer.split(" ");
+      String domData[] = domBuffer.replaceAll("\"","").split(" ");
+      String weakData[] = weakBuffer.replaceAll("\"","").split(" ");
       String rsid = rsidMap.getValue(domData[SNP_ID]);
 
       // 2. print out a list of the individual and its A and B intensity
       //    values.
       StringBuilder intensityData = new StringBuilder();
       for (int i = 1; i < domData.length; ++i) {
-        intensityData.append(person_id[i])
+        intensityData.append(person_id[i-1].substring(0, 11))
                      .append(" ")
                      .append(domData[i])
                      .append(" ")
@@ -152,15 +180,30 @@ public class SNPDataLoader {
                      .append('\n');
       }
 
-      // 3. Put this SNP in HTable.
-      Put newPut = addSNP(domData[0], intensityData.toString());
-      puts.add(newPut);
+      // 3. Append this SNP in HTable.
+			//			System.out.println("Adding " + rsid);
+      Put newPut = addSNP(rsid, intensityData.toString(), table);
+			puts.add(newPut);
 
-      if (puts.size() >= BATCH_LIMIT) {
-        processPuts(table, puts);
-      }
-    }
-  }
+			if (puts.size() >= BATCH_LIMIT) {
+				processPuts(table, puts);
+				puts.clear();
+				
+				if (!puts.isEmpty()) {
+					System.err.println("Didn't clear puts batch!");
+					System.exit(-1);
+				}
+			}
+		}
+		
+		dom.close();
+		weak.close();
+
+		if (!puts.isEmpty()) {
+			processPuts(table, puts);
+			puts.clear();
+		}
+	}
 
   public static void main(String[] args) {
     CommandLineParser parser = new GnuParser();
@@ -170,7 +213,7 @@ public class SNPDataLoader {
 			// parse the command line arguments
 			line = parser.parse(options, args);
 		} catch (ParseException pe) {
-      System.err.println("SNPDataLoader -snp FOLDER -rsid RSID_FILE");
+      System.err.println("Usage: SNPDataLoader -snp FOLDER -rsid RSID_FILE");
 			System.exit(-1);
 		}
 
@@ -185,9 +228,10 @@ public class SNPDataLoader {
 
     try {
       for (int i = 0; i < 8; ++i) {
-        readData(snpFolder + "/" + i + ".dom.dat",
-                 snpFolder + "/" + i + ".weak.dat",
-                 rsidMap);
+				String domFile = snpFolder + "/" + i + ".dom.dat";
+				String weakFile = snpFolder + "/" + i + ".weak.dat";
+				System.out.println("================= Processing " + domFile + "=======================");
+        readData(domFile, weakFile, rsidMap);
       }
     } catch (IOException ioe) {
       LOGGER.warning("IO Error in reading data!");

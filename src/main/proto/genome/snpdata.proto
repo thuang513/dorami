@@ -1,0 +1,39 @@
+package genome;
+
+option java_package = "com.dorami.data";
+option java_outer_classname = "SNPDataProtos";
+
+message SNPData {
+	message PersonSNP {
+		required string person_id = 1;
+		required double intensity_a = 2;
+		required double intensity_b = 3;
+	}
+
+	repeated PersonSNP points = 1;
+}
+
+message Answers {
+	message Genotype {
+		required string person_id = 1;
+		required string genotype = 2;
+	}
+
+	repeated Genotype observed = 1;
+}
+
+message ModelResults {
+	message PersonGenotype {
+		required string person_id = 1;
+		required string guess = 2;
+		required string correct = 3;
+
+		repeated double distribution = 4 [packed=true];
+
+		optional string r_output = 5;
+		optional double intensity_a = 6;
+		optional double intensity_b = 7;
+	}
+
+	repeated PersonGenotype results = 1;
+}

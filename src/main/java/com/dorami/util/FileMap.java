@@ -41,12 +41,11 @@ public class FileMap {
       BufferedReader read = new BufferedReader(new FileReader(file));
       String buffer = null;
       final String SEPERATOR = " ";
-      final String REMOVE_CHAR = "\"\'";
       final int SNP_ID = 0;
       final int RSID = 1;
       
       while((buffer = read.readLine()) != null) {
-        String[] rowData = buffer.replace(REMOVE_CHAR, "").split(" ");
+        String[] rowData = buffer.replaceAll("\"", "").split(" ");
         map.put(rowData[SNP_ID], rowData[RSID]);
       }
     } catch (FileNotFoundException fnfe) {

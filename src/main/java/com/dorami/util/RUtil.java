@@ -3,18 +3,13 @@ package com.dorami.util;
 
 import com.dorami.vector.TwoDimMean;
 import com.dorami.vector.TwoDimVariance;
-import java.io.PrintStream;
 
 public class RUtil {
-  
-  private PrintStream out;
 
-  public RUtil(PrintStream out) {
-    this.out = out;
-  }
-
-  public static RUtil getSystemOutWriter() {
-    return new RUtil(System.out);
+	private StringBuilder content;
+	
+  public RUtil() {
+		content = new StringBuilder();
   }
   
   public void drawLevelCurve(int cluster,
@@ -37,17 +32,47 @@ public class RUtil {
                              double varY,
                              double covXY,
                              double color) {
-    out.println("center" + cluster + " <- " +
-                "c(" + meanX + "," + meanY +")");
-    out.println("mcorr" + cluster + " <- " +
-                "matrix(c(" + varX +"," + covXY + "," + covXY +"," + varY + "), 2,2)");
+    content.append("center")
+			.append(cluster)
+			.append(" <- ")
+			.append("c(")
+			.append(meanX)
+			.append(",")
+			.append(meanY)
+			.append(")")
+			.append("\n");
 
-    out.println("ellipse(center" + cluster + "," + 
-                "mcorr" + cluster + ", " +
-                "sqrt(qchisq(.5,2)), col = " + color + ")");
+    content.append("mcorr")
+			.append(cluster)
+			.append(" <- " )
+			.append("matrix(c(")
+			.append(varX)
+			.append(",")
+			.append(covXY)
+			.append(",")
+			.append(covXY)
+			.append(",")
+			.append(varY)
+			.append("), 2,2)")
+			.append("\n");
+
+    content.append("ellipse(center")
+			.append(cluster)
+			.append(",")
+			.append("mcorr")
+			.append(cluster)
+			.append(", ")
+			.append("sqrt(qchisq(.5,2)), col = ")
+			.append(color)
+			.append(")")
+			.append("\n");
   }
 
   public void printComment(String comment) {
-    out.println("# " + comment);
+    content.append("# " + comment).append("\n");
   }
+
+	public String getCommands() {
+		return content.toString();
+	}
 }

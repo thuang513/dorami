@@ -59,11 +59,14 @@ public class EMClustering {
   
   private static GaussianMixtureModel gaussianClustering(List<TwoDimDataPoint> data) {
     final int NUM_CLUSTERS = 3;
+
+		RUtil output = new RUtil();
     GaussianMixtureModel mixtures = 
       new GaussianMixtureModel(data, 
                                NUM_CLUSTERS,
-                               RUtil.getSystemOutWriter());
+                               output);
     
+		System.out.println(output);
     int i = 0;
     while (true) {
       mixtures.expectationStep();

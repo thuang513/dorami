@@ -2,6 +2,7 @@ package com.dorami.clustering;
 
 
 import com.dorami.data.TwoDimDataPoint;
+import com.dorami.data.SNPDataProtos.SNPData;
 import com.dorami.util.Distributions;
 import com.dorami.util.RUtil;
 import com.dorami.vector.TwoDimMean;
@@ -36,6 +37,39 @@ public class GaussianMixtureModel {
 
   private RUtil r;
 
+
+
+	public static GaussianMixtureModel createWithSNPData(SNPData data,
+																											 int numClusters,
+																											 RUtil r) {
+		List<PersonSNP> snpData = data.points();
+		List<TwoDimDataPoint> dataPoints = new ArrayList<TwoDimDataPoint>();
+		for (PersonSNP person : snpData) {
+			dataPoints.add(new TwoDimDataPoint(person));
+		}
+
+		return new GaussianMixtureModel(dataPoints, numClusters, r);
+	}
+
+	public static ModelResults runMixture(SNPData data,
+																				int numClusters,
+																				RUtil r) {
+		GaussianMixtureModel gmm = createWithSNPData(data, numClusters, r);
+
+		// TODO: Figure out the right convergence method.
+		//       Currently does this by running some iteration.
+		for (int i = 0; i < 50; ++i) {
+      gmm.expectationStep();
+      gmm.maximizationStep();
+    }
+
+		ModelResults.Builder resultsBuild = ModelResults.newBuilder();
+		for (int j = 0; j < data.getPoints().size(); ++j) {
+			SNPData.PersonSNP person = data.getPoints(j);
+			ModelResults.PersonGenotype.newBuilder()
+				
+		}
+	}
   /**
    *  numClusters (or number of gaussian clusters).
    */
@@ -124,6 +158,7 @@ public class GaussianMixtureModel {
     return result;
   }
 
+	
   public int getNumClusters() {
     return numClusters;
   }

@@ -2,12 +2,17 @@ package com.dorami.data;
 
 
 import com.dorami.util.Hashing;
+import com.dorami.data.SNPDataProtos.SNPData.PersonSNP;
 
 public class TwoDimDataPoint {
 	
 	private double x;
 
 	private double y;
+
+	public TwoDimDataPoint(PersonSNP snp) {
+		this(snp.getIntensityA(), snp.getIntensityB());
+	}
 
 	public TwoDimDataPoint(double x, double y) {
 		this.x = x;

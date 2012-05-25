@@ -53,7 +53,7 @@ public class TwoDimVariance {
 
     // DEBUG
     calculateInitVarAndCov();
-    System.out.println("# Initial VarX = " + varX + ", Initial VarY = " + varY + ", initialCovXY= " + covXY);
+		//    System.out.println("# Initial VarX = " + varX + ", Initial VarY = " + varY + ", initialCovXY= " + covXY);
   }
 
   public int getCluster() {
