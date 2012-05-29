@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/svn/!svn/ver/95/branches/maven-plugin/python
+END
+ez_setup.py
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/!svn/ver/95/branches/maven-plugin/python/ez_setup.py
+END
+setup.py
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/!svn/ver/95/branches/maven-plugin/python/setup.py
+END
+mox.py
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/!svn/ver/95/branches/maven-plugin/python/mox.py
+END
+README.txt
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/!svn/ver/95/branches/maven-plugin/python/README.txt
+END
+stubout.py
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/!svn/ver/95/branches/maven-plugin/python/stubout.py
+END

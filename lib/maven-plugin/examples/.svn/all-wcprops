@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/!svn/ver/95/branches/maven-plugin/examples
+END
+AddPerson.java
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/!svn/ver/95/branches/maven-plugin/examples/AddPerson.java
+END
+ListPeople.java
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/!svn/ver/95/branches/maven-plugin/examples/ListPeople.java
+END
+addressbook.proto
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/!svn/ver/95/branches/maven-plugin/examples/addressbook.proto
+END
+add_person.cc
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/!svn/ver/95/branches/maven-plugin/examples/add_person.cc
+END
+list_people.cc
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/!svn/ver/95/branches/maven-plugin/examples/list_people.cc
+END
+add_person.py
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/!svn/ver/95/branches/maven-plugin/examples/add_person.py
+END
+list_people.py
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/!svn/ver/95/branches/maven-plugin/examples/list_people.py
+END
+README.txt
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/!svn/ver/95/branches/maven-plugin/examples/README.txt
+END
+Makefile
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/!svn/ver/95/branches/maven-plugin/examples/Makefile
+END

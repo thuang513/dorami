@@ -2,12 +2,18 @@ package com.dorami.clustering;
 
 
 import com.dorami.data.TwoDimDataPoint;
+import com.dorami.data.SNPDataProtos.ModelResults.Outcome;
+import com.dorami.data.SNPDataProtos.SNPData;
+import com.dorami.data.SNPDataProtos.SNPData.PersonSNP;
+import com.dorami.data.SNPDataProtos.Answers;
+import com.dorami.data.SNPDataProtos.ModelResults;
+import com.dorami.data.SNPDataProtos.ModelResults.GenotypeModel;
 import com.dorami.data.SNPDataProtos.SNPData;
 import com.dorami.util.Distributions;
 import com.dorami.util.RUtil;
+import com.dorami.util.SNPAnswerMap;
 import com.dorami.vector.TwoDimMean;
 import com.dorami.vector.TwoDimVariance;
-
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -35,41 +41,8 @@ public class GaussianMixtureModel {
 
   private int numClusters;
 
-  private RUtil r;
+	private RUtil r;
 
-
-
-	public static GaussianMixtureModel createWithSNPData(SNPData data,
-																											 int numClusters,
-																											 RUtil r) {
-		List<PersonSNP> snpData = data.points();
-		List<TwoDimDataPoint> dataPoints = new ArrayList<TwoDimDataPoint>();
-		for (PersonSNP person : snpData) {
-			dataPoints.add(new TwoDimDataPoint(person));
-		}
-
-		return new GaussianMixtureModel(dataPoints, numClusters, r);
-	}
-
-	public static ModelResults runMixture(SNPData data,
-																				int numClusters,
-																				RUtil r) {
-		GaussianMixtureModel gmm = createWithSNPData(data, numClusters, r);
-
-		// TODO: Figure out the right convergence method.
-		//       Currently does this by running some iteration.
-		for (int i = 0; i < 50; ++i) {
-      gmm.expectationStep();
-      gmm.maximizationStep();
-    }
-
-		ModelResults.Builder resultsBuild = ModelResults.newBuilder();
-		for (int j = 0; j < data.getPoints().size(); ++j) {
-			SNPData.PersonSNP person = data.getPoints(j);
-			ModelResults.PersonGenotype.newBuilder()
-				
-		}
-	}
   /**
    *  numClusters (or number of gaussian clusters).
    */
@@ -93,20 +66,6 @@ public class GaussianMixtureModel {
     }
   }
 
-  private void setupInitialVariances() {
-    gaussianVar = new ArrayList(numClusters);
-    for (int i = 0; i < numClusters; ++i) {
-      TwoDimMean mean = gaussianMeans.get(i);
-      TwoDimVariance var = new TwoDimVariance(data, this, i, mean);
-      gaussianVar.add(var);
-
-      // Draw out the curves
-      if (r != null) {
-        r.drawLevelCurve(i, mean, var);
-      }
-    }
-  }
-
   private void setupInitialMeans() {
     List<TwoDimDataPoint> initialMeans = generateInitialMeans();
     gaussianMeans = new ArrayList(numClusters);
@@ -121,6 +80,20 @@ public class GaussianMixtureModel {
     }
   }
   
+  private void setupInitialVariances() {
+    gaussianVar = new ArrayList(numClusters);
+    for (int i = 0; i < numClusters; ++i) {
+      TwoDimMean mean = gaussianMeans.get(i);
+      TwoDimVariance var = new TwoDimVariance(data, this, i, mean);
+      gaussianVar.add(var);
+
+      // Draw out the curves
+      if (r != null) {
+        r.drawLevelCurve(i, mean, var);
+      }
+    }
+	}
+
   private List<TwoDimDataPoint> generateInitialMeans() {
     double[] xValues = new double[data.size()];
     double[] yValues = new double[data.size()];
@@ -156,9 +129,8 @@ public class GaussianMixtureModel {
       }
     }
     return result;
-  }
+	}
 
-	
   public int getNumClusters() {
     return numClusters;
   }
@@ -222,7 +194,6 @@ public class GaussianMixtureModel {
                                            var.getStdY(),
                                            var.getCorrelation());
   }
-
   
   /**
    *  Expectation step is to figure out the probabilistic weights for
@@ -256,7 +227,7 @@ public class GaussianMixtureModel {
    *
    */
   public void maximizationStep() {
-   for (TwoDimMean mean : gaussianMeans) {
+		for (TwoDimMean mean : gaussianMeans) {
       mean.calculateMean();
     }
 
@@ -271,4 +242,17 @@ public class GaussianMixtureModel {
       r.drawLevelCurve(i, mean, var);
     }
   }
+
+	public void clusterData() {
+		// TODO: Figure out the right convergence method.
+		//       Currently does this by running some iteration.
+		for (int i = 0; i < 50; ++i) {
+      expectationStep();
+      maximizationStep();
+    }
+	}
 }
+
+
+
+

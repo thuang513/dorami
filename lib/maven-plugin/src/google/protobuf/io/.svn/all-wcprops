@@ -1,0 +1,95 @@
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/!svn/ver/95/branches/maven-plugin/src/google/protobuf/io
+END
+coded_stream.h
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/!svn/ver/95/branches/maven-plugin/src/google/protobuf/io/coded_stream.h
+END
+zero_copy_stream_impl.cc
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/!svn/ver/95/branches/maven-plugin/src/google/protobuf/io/zero_copy_stream_impl.cc
+END
+zero_copy_stream_impl.h
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/!svn/ver/95/branches/maven-plugin/src/google/protobuf/io/zero_copy_stream_impl.h
+END
+package_info.h
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/!svn/ver/95/branches/maven-plugin/src/google/protobuf/io/package_info.h
+END
+tokenizer_unittest.cc
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/!svn/ver/95/branches/maven-plugin/src/google/protobuf/io/tokenizer_unittest.cc
+END
+tokenizer.cc
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/!svn/ver/95/branches/maven-plugin/src/google/protobuf/io/tokenizer.cc
+END
+tokenizer.h
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/!svn/ver/95/branches/maven-plugin/src/google/protobuf/io/tokenizer.h
+END
+printer_unittest.cc
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/!svn/ver/95/branches/maven-plugin/src/google/protobuf/io/printer_unittest.cc
+END
+printer.cc
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/!svn/ver/95/branches/maven-plugin/src/google/protobuf/io/printer.cc
+END
+zero_copy_stream_unittest.cc
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/!svn/ver/95/branches/maven-plugin/src/google/protobuf/io/zero_copy_stream_unittest.cc
+END
+zero_copy_stream.cc
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/!svn/ver/95/branches/maven-plugin/src/google/protobuf/io/zero_copy_stream.cc
+END
+printer.h
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/!svn/ver/95/branches/maven-plugin/src/google/protobuf/io/printer.h
+END
+zero_copy_stream.h
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/!svn/ver/95/branches/maven-plugin/src/google/protobuf/io/zero_copy_stream.h
+END
+coded_stream_unittest.cc
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/!svn/ver/95/branches/maven-plugin/src/google/protobuf/io/coded_stream_unittest.cc
+END
+coded_stream.cc
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/!svn/ver/95/branches/maven-plugin/src/google/protobuf/io/coded_stream.cc
+END

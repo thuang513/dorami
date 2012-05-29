@@ -1,0 +1,107 @@
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/!svn/ver/95/branches/maven-plugin/src/gtest
+END
+gtest-port.cc
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/!svn/ver/95/branches/maven-plugin/src/gtest/gtest-port.cc
+END
+README
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/!svn/ver/95/branches/maven-plugin/src/gtest/README
+END
+CONTRIBUTORS
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/!svn/ver/95/branches/maven-plugin/src/gtest/CONTRIBUTORS
+END
+gtest-message.h
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/!svn/ver/95/branches/maven-plugin/src/gtest/gtest-message.h
+END
+gtest_prod.h
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/!svn/ver/95/branches/maven-plugin/src/gtest/gtest_prod.h
+END
+gen_gtest_pred_impl.py
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/!svn/ver/95/branches/maven-plugin/src/gtest/gen_gtest_pred_impl.py
+END
+gtest-filepath.cc
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/!svn/ver/95/branches/maven-plugin/src/gtest/gtest-filepath.cc
+END
+gtest-spi.h
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/!svn/ver/95/branches/maven-plugin/src/gtest/gtest-spi.h
+END
+gtest-internal-inl.h
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/!svn/ver/95/branches/maven-plugin/src/gtest/gtest-internal-inl.h
+END
+gtest_pred_impl.h
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/!svn/ver/95/branches/maven-plugin/src/gtest/gtest_pred_impl.h
+END
+CHANGES
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/!svn/ver/95/branches/maven-plugin/src/gtest/CHANGES
+END
+COPYING
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/!svn/ver/95/branches/maven-plugin/src/gtest/COPYING
+END
+gtest.cc
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/!svn/ver/95/branches/maven-plugin/src/gtest/gtest.cc
+END
+gtest-death-test.cc
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/!svn/ver/95/branches/maven-plugin/src/gtest/gtest-death-test.cc
+END
+gtest.h
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/!svn/ver/95/branches/maven-plugin/src/gtest/gtest.h
+END
+gtest-death-test.h
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/!svn/ver/95/branches/maven-plugin/src/gtest/gtest-death-test.h
+END
+gtest_main.cc
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/!svn/ver/95/branches/maven-plugin/src/gtest/gtest_main.cc
+END

@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/!svn/ver/95/branches/maven-plugin/python/google/protobuf
+END
+reflection.py
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/!svn/ver/95/branches/maven-plugin/python/google/protobuf/reflection.py
+END
+service_reflection.py
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/!svn/ver/95/branches/maven-plugin/python/google/protobuf/service_reflection.py
+END
+text_format.py
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/!svn/ver/95/branches/maven-plugin/python/google/protobuf/text_format.py
+END
+descriptor.py
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/!svn/ver/95/branches/maven-plugin/python/google/protobuf/descriptor.py
+END
+__init__.py
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/!svn/ver/95/branches/maven-plugin/python/google/protobuf/__init__.py
+END
+service.py
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/!svn/ver/95/branches/maven-plugin/python/google/protobuf/service.py
+END
+message.py
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/!svn/ver/95/branches/maven-plugin/python/google/protobuf/message.py
+END

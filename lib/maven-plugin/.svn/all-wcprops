@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 38
+/svn/!svn/ver/99/branches/maven-plugin
+END
+post_process_dist.sh
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/!svn/ver/95/branches/maven-plugin/post_process_dist.sh
+END
+configure.ac
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/!svn/ver/95/branches/maven-plugin/configure.ac
+END
+INSTALL.txt
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/!svn/ver/95/branches/maven-plugin/INSTALL.txt
+END
+generate_descriptor_proto.sh
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/!svn/ver/95/branches/maven-plugin/generate_descriptor_proto.sh
+END
+CHANGES.txt
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/!svn/ver/95/branches/maven-plugin/CHANGES.txt
+END
+COPYING.txt
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/!svn/ver/95/branches/maven-plugin/COPYING.txt
+END
+Makefile.am
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/!svn/ver/95/branches/maven-plugin/Makefile.am
+END
+pom.xml
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/!svn/ver/99/branches/maven-plugin/pom.xml
+END
+autogen.sh
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/!svn/ver/95/branches/maven-plugin/autogen.sh
+END
+README.txt
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/!svn/ver/95/branches/maven-plugin/README.txt
+END
+CONTRIBUTORS.txt
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/!svn/ver/95/branches/maven-plugin/CONTRIBUTORS.txt
+END

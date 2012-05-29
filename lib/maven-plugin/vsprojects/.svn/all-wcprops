@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/!svn/ver/95/branches/maven-plugin/vsprojects
+END
+libprotoc.vcproj
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/!svn/ver/95/branches/maven-plugin/vsprojects/libprotoc.vcproj
+END
+tests.vcproj
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/!svn/ver/95/branches/maven-plugin/vsprojects/tests.vcproj
+END
+extract_includes.bat
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/!svn/ver/95/branches/maven-plugin/vsprojects/extract_includes.bat
+END
+protoc.vcproj
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/!svn/ver/95/branches/maven-plugin/vsprojects/protoc.vcproj
+END
+libprotobuf.vcproj
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/!svn/ver/95/branches/maven-plugin/vsprojects/libprotobuf.vcproj
+END
+readme.txt
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/!svn/ver/95/branches/maven-plugin/vsprojects/readme.txt
+END
+protobuf.sln
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/!svn/ver/95/branches/maven-plugin/vsprojects/protobuf.sln
+END
+config.h
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/!svn/ver/95/branches/maven-plugin/vsprojects/config.h
+END
+convert2008to2005.sh
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/!svn/ver/95/branches/maven-plugin/vsprojects/convert2008to2005.sh
+END

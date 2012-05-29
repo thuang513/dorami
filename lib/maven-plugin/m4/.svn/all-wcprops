@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 41
+/svn/!svn/ver/95/branches/maven-plugin/m4
+END
+acx_pthread.m4
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/!svn/ver/95/branches/maven-plugin/m4/acx_pthread.m4
+END
+stl_hash.m4
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/!svn/ver/95/branches/maven-plugin/m4/stl_hash.m4
+END
+ac_system_extensions.m4
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/!svn/ver/95/branches/maven-plugin/m4/ac_system_extensions.m4
+END

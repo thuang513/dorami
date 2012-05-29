@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/!svn/ver/95/branches/maven-plugin/src/gtest/internal
+END
+gtest-string.h
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/!svn/ver/95/branches/maven-plugin/src/gtest/internal/gtest-string.h
+END
+gtest-internal.h
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/!svn/ver/95/branches/maven-plugin/src/gtest/internal/gtest-internal.h
+END
+gtest-death-test-internal.h
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/!svn/ver/95/branches/maven-plugin/src/gtest/internal/gtest-death-test-internal.h
+END
+gtest-filepath.h
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/!svn/ver/95/branches/maven-plugin/src/gtest/internal/gtest-filepath.h
+END
+gtest-port.h
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/!svn/ver/95/branches/maven-plugin/src/gtest/internal/gtest-port.h
+END

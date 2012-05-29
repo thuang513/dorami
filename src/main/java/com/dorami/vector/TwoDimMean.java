@@ -79,7 +79,6 @@ public class TwoDimMean {
     //    System.out.println("" + meanX + "," + meanY);
 
   }
-  
   public double getMeanX() {
     return meanX;
   }

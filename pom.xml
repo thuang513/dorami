@@ -14,7 +14,7 @@
     <commons-math.version>2.2</commons-math.version>
     <hadoop.version>1.0.1</hadoop.version>
     <hbase.version>0.90.4</hbase.version>
-    <protobuf.version>2.3.0</protobuf.version>
+    <protobuf.version>2.4.1</protobuf.version>
   </properties>
 
   <dependencies>
@@ -64,17 +64,25 @@
 
   </dependencies>
 	
-	<pluginRepositories>
-		<pluginRepository>
-			<id>dtrott</id>
-			<url>http://maven.davidtrott.com/repository</url>
-		</pluginRepository>
-	</pluginRepositories>  
-	
+	 <repositories>
+		 <repository>
+			 <id>google-maven-repository</id>
+			 <name>Google Maven Repository</name>
+			 <url>http://google-maven-repository.googlecode.com/svn/repository/</url>
+		 </repository>
+	 </repositories>
+
+	 <pluginRepositories>
+		 <pluginRepository>
+			 <id>dtrott</id>
+			 <url>http://maven.davidtrott.com/repository</url>
+		 </pluginRepository>
+	 </pluginRepositories>  
+	 
   <build>
     <plugins>
       <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
+				<groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
         <version>2.0.2</version>
         <configuration>
@@ -101,9 +109,9 @@
 					</execution>
 				</executions>
 			</plugin>
-
-      <plugin>
-        <artifactId>maven-assembly-plugin</artifactId>
+			
+			<plugin>
+				<artifactId>maven-assembly-plugin</artifactId>
         <version>2.2.1</version>
         <configuration>
           <descriptorRefs>

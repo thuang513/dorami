@@ -10,30 +10,44 @@ message SNPData {
 		required double intensity_b = 3;
 	}
 
-	repeated PersonSNP points = 1;
+	// Every PersonSNP represents a person's intensity values.
+	repeated PersonSNP people = 1;
 }
 
 message Answers {
-	message Genotype {
+	message GenotypeObs {
 		required string person_id = 1;
 		required string genotype = 2;
 	}
 
-	repeated Genotype observed = 1;
+	// Every genotype represents the observed outcome of a person.
+	repeated GenotypeObs observed = 1;
 }
 
 message ModelResults {
-	message PersonGenotype {
-		required string person_id = 1;
-		required string guess = 2;
-		required string correct = 3;
 
-		repeated double distribution = 4 [packed=true];
-
-		optional string r_output = 5;
-		optional double intensity_a = 6;
-		optional double intensity_b = 7;
+	enum Outcome {
+		CORRECT = 0;
+		INCORRECT = 1;
+		NODATA = 2;
 	}
 
-	repeated PersonGenotype results = 1;
+	message GenotypeModel {
+		required SNPData.PersonSNP snp_data = 1;
+		required int32 guess = 2;
+		required Outcome outcome = 3;
+	}
+
+	// Every persongenotype represents the predicted genotype for the person.
+	repeated GenotypeModel result = 1;
+	optional int32 total_correct = 2;
+	optional int32 total_experiments = 3;
+	optional string r_output = 4;
+
+}
+
+message Accuracy {
+	required int32 correct = 1;
+	required int32 total = 2;
+	optional double accuracy = 3;
 }

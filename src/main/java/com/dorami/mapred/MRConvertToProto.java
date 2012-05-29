@@ -4,12 +4,8 @@ package com.dorami.mapred;
 import com.dorami.data.TwoDimDataPoint;
 import com.dorami.data.SNPDataProtos.SNPData;
 import com.dorami.data.SNPDataProtos.Answers;
-import com.dorami.clustering.GaussianMixtureModel;
-import com.dorami.util.RUtil;
-import com.dorami.util.SNPAnswerMap;
 
 import java.io.BufferedReader;
-import java.io.InputStreamReader;
 import java.io.IOException;
 import java.io.StringReader;
 import java.util.ArrayList;
@@ -32,13 +28,13 @@ import org.apache.hadoop.hbase.util.Bytes;
 import org.apache.hadoop.mapreduce.Job;
 import org.apache.hadoop.mapreduce.Mapper.Context;
 
-public class MRGenotypeCalling extends TableMapper<ImmutableBytesWritable, Put> {
+public class MRConvertToProto extends TableMapper<ImmutableBytesWritable, Put> {
 
 	/** 
 	 *  Setup the logger 
 	 */
 	private static final Logger LOGGER = 
-		Logger.getLogger(MRGenotypeCalling.class.getName());
+		Logger.getLogger(MRConvertToProto.class.getName());
 
 	private static Pair<List<TwoDimDataPoint>, List<String>> 
 		parseIntensityData(String intensityData) {
@@ -73,37 +69,43 @@ public class MRGenotypeCalling extends TableMapper<ImmutableBytesWritable, Put> 
 		return results;
 	}
 
+	private Answers loadAnswers(String answers) throws IOException {
+		BufferedReader read = new BufferedReader(new StringReader(answers));
+		String buffer = null;
 
-  private static GaussianMixtureModel gaussianClustering(List<TwoDimDataPoint> data) {
-    final int NUM_CLUSTERS = 3;
-    GaussianMixtureModel mixtures = 
-      new GaussianMixtureModel(data, 
-                               NUM_CLUSTERS,
-                               new RUtil());
-    int i = 0;
-    while (true) {
-      mixtures.expectationStep();
-      mixtures.maximizationStep();
+		final String SEPERATOR = " ";
+		final int PERSON_ID = 0;
+		final int ANSWER = 1;
 
-      // TODO: Figure out the right convergence method.
-      //       Currently does this by running some iteration.
-      if (i >= 50) {
-        break;
-      }
-      ++i;
-    }
-    return mixtures;
-  }
+		Answers.Builder newAnswers = Answers.newBuilder();
+		while ((buffer = read.readLine()) != null) {
+			String[] data = buffer.split(SEPERATOR);
+			String genotype = data[ANSWER].trim();
+			Answers.GenotypeObs observed = 
+				Answers.GenotypeObs.newBuilder()
+				                   .setPersonId(data[PERSON_ID])
+				                   .setGenotype(genotype)
+				                   .build();
+			newAnswers.addObserved(observed);
+		}
+
+		return newAnswers.build();
+	}
 
 	public void map(ImmutableBytesWritable row, 
 									Result value, 
 									Context context) {
-		final byte[] CONTENT_FAMILY = Bytes.toBytes("raw");
-		final byte[] INTENSITY = Bytes.toBytes("intensity-data");
-		final byte[] ANSWERS = Bytes.toBytes("answers");
+		final byte[] RAW_FAMILY = Bytes.toBytes("raw");
+		final byte[] INTENSITY_STRING = Bytes.toBytes("intensity-data");
+		final byte[] ANSWER_STRING = Bytes.toBytes("answers");
 
-		byte[] rawIntensityData = value.getValue(CONTENT_FAMILY, INTENSITY);
-		byte[] rawAnswers = value.getValue(CONTENT_FAMILY, ANSWERS);
+		final byte[] INTENSITY_PROTO = Bytes.toBytes("intensity-proto");
+		final byte[] ANSWER_PROTO = Bytes.toBytes("answer-proto");
+
+		final byte[] rawIntensityData = value.getValue(RAW_FAMILY, 
+																									 INTENSITY_STRING);
+		final byte[] rawAnswers = value.getValue(RAW_FAMILY,
+																						 ANSWER_STRING);
 
 		// Only want to deal with interesting data that have results...
 		if (rawIntensityData == null || rawAnswers == null) {
@@ -114,74 +116,51 @@ public class MRGenotypeCalling extends TableMapper<ImmutableBytesWritable, Put> 
 			return;
 		}
 
-		String intensityData =
+		String intensityString =
 			Bytes.toString(rawIntensityData);
 		
-		String answers = 
+		String answersString = 
 			Bytes.toString(rawAnswers);
 
 		Pair<List<TwoDimDataPoint>, List<String>> intensityDataPair = 
-			parseIntensityData(intensityData);
-		List<TwoDimDataPoint> intensityPoints = intensityDataPair.getLeft();
+			parseIntensityData(intensityString);
 
-		GaussianMixtureModel weights = gaussianClustering(intensityPoints);
+		List<TwoDimDataPoint> intensityPoints = intensityDataPair.getLeft();
 		List<String> personId = intensityDataPair.getRight();
 
-		SNPAnswerMap answerMap = new SNPAnswerMap(answers);
-
-		int correct = 0;
-
-		final char SPACE = ' ';
-		StringBuilder report = new StringBuilder();
-		for (int i = 0; i < personId.size(); ++i) {
+		SNPData.Builder newSNP = SNPData.newBuilder();
+		for (int i = 0; i < intensityPoints.size(); ++i) {
 			TwoDimDataPoint point = intensityPoints.get(i);
-			String person = personId.get(i);
-			report.append(person)
-				.append(SPACE)
-				.append(point.getX())
-				.append(SPACE)
-				.append(point.getY())
-				.append(SPACE);
-			
-			// Write the probabilities for cluster 0,1,2
-			int clusterGuess = 0;
-			double highestWeight = Double.MIN_VALUE;
-			for (int c = 0; c < weights.getNumClusters(); ++c) {
-				double currentWeight = weights.getWeight(i,c);
-				if (currentWeight > highestWeight) {
-					highestWeight = currentWeight;
-					clusterGuess = c;
-				}
-				report.append(currentWeight).append(SPACE);
-			}
-			
-			// Write the guess for this person
-			report.append(clusterGuess).append(SPACE).append("\n");
 
-			if (answerMap.checkAnswer(person, clusterGuess, false) == 1) {
-				++correct;
-			}
+			SNPData.PersonSNP.Builder newPerson = 
+				SNPData.PersonSNP.newBuilder();
+
+			newPerson.setIntensityA(point.getX());
+			newPerson.setIntensityB(point.getY());
+
+			newPerson.setPersonId(personId.get(i));
+			newSNP.addPeople(newPerson);
 		}
 
-		final byte[] COOKED_FAMILY = Bytes.toBytes("cooked");
-		final byte[] DATA_QUALIFIER = Bytes.toBytes("data");
-		final byte[] ACCURACY_QUALIFIER = Bytes.toBytes("accuracy");
-
-		final byte[] TOTAL_QUALIFIER = Bytes.toBytes("total");
+		Answers answers = null;
 
 		try {
+			answers = loadAnswers(answersString);
+
+		} catch (IOException ioe) {
+			System.err.println("Couldn't figure out how to read answers!");
+		}
+
+		// Write to the HTable row.
+		try {
 			Put addingRow = new Put(row.get());
-			addingRow.add(COOKED_FAMILY,
-										DATA_QUALIFIER,
-										Bytes.toBytes(report.toString()));
-
-			addingRow.add(COOKED_FAMILY,
-										ACCURACY_QUALIFIER,
-										Bytes.toBytes(correct));
-
-			addingRow.add(COOKED_FAMILY,
-										TOTAL_QUALIFIER,
-										Bytes.toBytes(personId.size()));
+			addingRow.add(RAW_FAMILY,
+										INTENSITY_PROTO,
+										newSNP.build().toByteArray());
+			
+			addingRow.add(RAW_FAMILY,
+										ANSWER_PROTO,
+										answers.toByteArray());
 
 			context.write(row, addingRow); 
 		} catch (IOException ioe) {
@@ -196,14 +175,14 @@ public class MRGenotypeCalling extends TableMapper<ImmutableBytesWritable, Put> 
 
 		// Setup what parts of the HTable do we want to map over.
 		try {
-			Job job = new Job(conf, "MRGenotypeCalling");
+			Job job = new Job(conf, "MRConvertToProto");
 			Scan scan = new Scan();
 			scan.setCaching(500);
 			scan.setCacheBlocks(false);
 
 			TableMapReduceUtil.initTableMapperJob("gene",
 																						scan,
-																						MRGenotypeCalling.class,
+																						MRConvertToProto.class,
 																						null,
 																						null,
 																						job);
@@ -214,14 +193,14 @@ public class MRGenotypeCalling extends TableMapper<ImmutableBytesWritable, Put> 
 			job.setNumReduceTasks(0);
 			boolean b = job.waitForCompletion(true);
 			if (!b) {
-				LOGGER.warning("MRGenotypeCalling job failed!");
+				LOGGER.warning("MRConvertToProto job failed!");
 			}
 		} catch (IOException ioe) {
 			LOGGER.warning("Could not setup the mapper and reducer jobs!");
 		} catch (InterruptedException ie) {
-			LOGGER.warning("MRGenotypeCalling was interrupted!");
+			LOGGER.warning("MRConvertToProto was interrupted!");
 		} catch (ClassNotFoundException notFound) {
-			LOGGER.warning("Could not find the class: MRGenotypeCalling.class");
+			LOGGER.warning("Could not find the class: MRConvertToProto.class");
 		}
 	}
 }

@@ -1,0 +1,137 @@
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/!svn/ver/95/branches/maven-plugin/src/google/protobuf/compiler/java
+END
+java_service.cc
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/!svn/ver/95/branches/maven-plugin/src/google/protobuf/compiler/java/java_service.cc
+END
+java_service.h
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/!svn/ver/95/branches/maven-plugin/src/google/protobuf/compiler/java/java_service.h
+END
+java_helpers.cc
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/!svn/ver/95/branches/maven-plugin/src/google/protobuf/compiler/java/java_helpers.cc
+END
+java_enum.cc
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/!svn/ver/95/branches/maven-plugin/src/google/protobuf/compiler/java/java_enum.cc
+END
+java_helpers.h
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/!svn/ver/95/branches/maven-plugin/src/google/protobuf/compiler/java/java_helpers.h
+END
+java_enum.h
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/!svn/ver/95/branches/maven-plugin/src/google/protobuf/compiler/java/java_enum.h
+END
+java_enum_field.cc
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/!svn/ver/95/branches/maven-plugin/src/google/protobuf/compiler/java/java_enum_field.cc
+END
+java_enum_field.h
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/!svn/ver/95/branches/maven-plugin/src/google/protobuf/compiler/java/java_enum_field.h
+END
+java_primitive_field.cc
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/!svn/ver/95/branches/maven-plugin/src/google/protobuf/compiler/java/java_primitive_field.cc
+END
+java_extension.cc
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/!svn/ver/95/branches/maven-plugin/src/google/protobuf/compiler/java/java_extension.cc
+END
+java_primitive_field.h
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/!svn/ver/95/branches/maven-plugin/src/google/protobuf/compiler/java/java_primitive_field.h
+END
+java_extension.h
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/!svn/ver/95/branches/maven-plugin/src/google/protobuf/compiler/java/java_extension.h
+END
+java_file.cc
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/!svn/ver/95/branches/maven-plugin/src/google/protobuf/compiler/java/java_file.cc
+END
+java_file.h
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/!svn/ver/95/branches/maven-plugin/src/google/protobuf/compiler/java/java_file.h
+END
+java_field.cc
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/!svn/ver/95/branches/maven-plugin/src/google/protobuf/compiler/java/java_field.cc
+END
+java_message.cc
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/!svn/ver/95/branches/maven-plugin/src/google/protobuf/compiler/java/java_message.cc
+END
+java_field.h
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/!svn/ver/95/branches/maven-plugin/src/google/protobuf/compiler/java/java_field.h
+END
+java_message.h
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/!svn/ver/95/branches/maven-plugin/src/google/protobuf/compiler/java/java_message.h
+END
+java_generator.cc
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/!svn/ver/95/branches/maven-plugin/src/google/protobuf/compiler/java/java_generator.cc
+END
+java_message_field.cc
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/!svn/ver/95/branches/maven-plugin/src/google/protobuf/compiler/java/java_message_field.cc
+END
+java_generator.h
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/!svn/ver/95/branches/maven-plugin/src/google/protobuf/compiler/java/java_generator.h
+END
+java_message_field.h
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/!svn/ver/95/branches/maven-plugin/src/google/protobuf/compiler/java/java_message_field.h
+END

@@ -1,0 +1,77 @@
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/!svn/ver/99/branches/maven-plugin/java/src/test/java/com/google/protobuf
+END
+UnknownFieldSetTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/!svn/ver/95/branches/maven-plugin/java/src/test/java/com/google/protobuf/UnknownFieldSetTest.java
+END
+WireFormatTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/!svn/ver/95/branches/maven-plugin/java/src/test/java/com/google/protobuf/WireFormatTest.java
+END
+ServiceTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/!svn/ver/95/branches/maven-plugin/java/src/test/java/com/google/protobuf/ServiceTest.java
+END
+DescriptorsTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/!svn/ver/95/branches/maven-plugin/java/src/test/java/com/google/protobuf/DescriptorsTest.java
+END
+GeneratedMessageTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/!svn/ver/95/branches/maven-plugin/java/src/test/java/com/google/protobuf/GeneratedMessageTest.java
+END
+MessageTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/!svn/ver/95/branches/maven-plugin/java/src/test/java/com/google/protobuf/MessageTest.java
+END
+AbstractMessageTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/!svn/ver/95/branches/maven-plugin/java/src/test/java/com/google/protobuf/AbstractMessageTest.java
+END
+DynamicMessageTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/!svn/ver/95/branches/maven-plugin/java/src/test/java/com/google/protobuf/DynamicMessageTest.java
+END
+CodedInputStreamTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/!svn/ver/95/branches/maven-plugin/java/src/test/java/com/google/protobuf/CodedInputStreamTest.java
+END
+CodedOutputStreamTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/!svn/ver/95/branches/maven-plugin/java/src/test/java/com/google/protobuf/CodedOutputStreamTest.java
+END
+TestUtil.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/!svn/ver/95/branches/maven-plugin/java/src/test/java/com/google/protobuf/TestUtil.java
+END
+TextFormatTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/!svn/ver/95/branches/maven-plugin/java/src/test/java/com/google/protobuf/TextFormatTest.java
+END

@@ -1,0 +1,137 @@
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/!svn/ver/95/branches/maven-plugin/python/google/protobuf/internal
+END
+type_checkers.py
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/!svn/ver/95/branches/maven-plugin/python/google/protobuf/internal/type_checkers.py
+END
+message_listener.py
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/!svn/ver/95/branches/maven-plugin/python/google/protobuf/internal/message_listener.py
+END
+reflection_test.py
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/!svn/ver/95/branches/maven-plugin/python/google/protobuf/internal/reflection_test.py
+END
+text_format_test.py
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/!svn/ver/95/branches/maven-plugin/python/google/protobuf/internal/text_format_test.py
+END
+more_extensions.proto
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/!svn/ver/95/branches/maven-plugin/python/google/protobuf/internal/more_extensions.proto
+END
+__init__.py
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/!svn/ver/95/branches/maven-plugin/python/google/protobuf/internal/__init__.py
+END
+decoder_test.py
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/!svn/ver/95/branches/maven-plugin/python/google/protobuf/internal/decoder_test.py
+END
+more_messages.proto
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/!svn/ver/95/branches/maven-plugin/python/google/protobuf/internal/more_messages.proto
+END
+decoder.py
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/!svn/ver/95/branches/maven-plugin/python/google/protobuf/internal/decoder.py
+END
+containers.py
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/!svn/ver/95/branches/maven-plugin/python/google/protobuf/internal/containers.py
+END
+input_stream_test.py
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/!svn/ver/95/branches/maven-plugin/python/google/protobuf/internal/input_stream_test.py
+END
+service_reflection_test.py
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/!svn/ver/95/branches/maven-plugin/python/google/protobuf/internal/service_reflection_test.py
+END
+output_stream_test.py
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/!svn/ver/95/branches/maven-plugin/python/google/protobuf/internal/output_stream_test.py
+END
+input_stream.py
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/!svn/ver/95/branches/maven-plugin/python/google/protobuf/internal/input_stream.py
+END
+output_stream.py
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/!svn/ver/95/branches/maven-plugin/python/google/protobuf/internal/output_stream.py
+END
+test_util.py
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/!svn/ver/95/branches/maven-plugin/python/google/protobuf/internal/test_util.py
+END
+descriptor_test.py
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/!svn/ver/95/branches/maven-plugin/python/google/protobuf/internal/descriptor_test.py
+END
+wire_format_test.py
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/!svn/ver/95/branches/maven-plugin/python/google/protobuf/internal/wire_format_test.py
+END
+wire_format.py
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/!svn/ver/95/branches/maven-plugin/python/google/protobuf/internal/wire_format.py
+END
+encoder_test.py
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/!svn/ver/95/branches/maven-plugin/python/google/protobuf/internal/encoder_test.py
+END
+encoder.py
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/!svn/ver/95/branches/maven-plugin/python/google/protobuf/internal/encoder.py
+END
+generator_test.py
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/!svn/ver/95/branches/maven-plugin/python/google/protobuf/internal/generator_test.py
+END

@@ -1,0 +1,131 @@
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/!svn/ver/99/branches/maven-plugin/java/src/main/java/com/google/protobuf
+END
+FieldSet.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/!svn/ver/95/branches/maven-plugin/java/src/main/java/com/google/protobuf/FieldSet.java
+END
+Service.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/!svn/ver/95/branches/maven-plugin/java/src/main/java/com/google/protobuf/Service.java
+END
+Descriptors.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/!svn/ver/95/branches/maven-plugin/java/src/main/java/com/google/protobuf/Descriptors.java
+END
+RpcCallback.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/!svn/ver/95/branches/maven-plugin/java/src/main/java/com/google/protobuf/RpcCallback.java
+END
+GeneratedMessage.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/!svn/ver/95/branches/maven-plugin/java/src/main/java/com/google/protobuf/GeneratedMessage.java
+END
+ExtensionRegistry.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/!svn/ver/95/branches/maven-plugin/java/src/main/java/com/google/protobuf/ExtensionRegistry.java
+END
+AbstractMessage.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/!svn/ver/95/branches/maven-plugin/java/src/main/java/com/google/protobuf/AbstractMessage.java
+END
+CodedInputStream.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/!svn/ver/95/branches/maven-plugin/java/src/main/java/com/google/protobuf/CodedInputStream.java
+END
+CodedOutputStream.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/!svn/ver/95/branches/maven-plugin/java/src/main/java/com/google/protobuf/CodedOutputStream.java
+END
+RpcChannel.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/!svn/ver/95/branches/maven-plugin/java/src/main/java/com/google/protobuf/RpcChannel.java
+END
+UnknownFieldSet.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/!svn/ver/95/branches/maven-plugin/java/src/main/java/com/google/protobuf/UnknownFieldSet.java
+END
+WireFormat.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/!svn/ver/95/branches/maven-plugin/java/src/main/java/com/google/protobuf/WireFormat.java
+END
+InvalidProtocolBufferException.java
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/!svn/ver/95/branches/maven-plugin/java/src/main/java/com/google/protobuf/InvalidProtocolBufferException.java
+END
+RpcUtil.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/!svn/ver/95/branches/maven-plugin/java/src/main/java/com/google/protobuf/RpcUtil.java
+END
+Message.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/!svn/ver/95/branches/maven-plugin/java/src/main/java/com/google/protobuf/Message.java
+END
+RpcController.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/!svn/ver/95/branches/maven-plugin/java/src/main/java/com/google/protobuf/RpcController.java
+END
+DynamicMessage.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/!svn/ver/95/branches/maven-plugin/java/src/main/java/com/google/protobuf/DynamicMessage.java
+END
+ByteString.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/!svn/ver/95/branches/maven-plugin/java/src/main/java/com/google/protobuf/ByteString.java
+END
+ProtocolMessageEnum.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/!svn/ver/99/branches/maven-plugin/java/src/main/java/com/google/protobuf/ProtocolMessageEnum.java
+END
+UninitializedMessageException.java
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/!svn/ver/95/branches/maven-plugin/java/src/main/java/com/google/protobuf/UninitializedMessageException.java
+END
+TextFormat.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/!svn/ver/95/branches/maven-plugin/java/src/main/java/com/google/protobuf/TextFormat.java
+END

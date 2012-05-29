@@ -1,5 +1,7 @@
 package com.dorami.util;
 
+import com.dorami.data.SNPDataProtos.Answers;
+import com.dorami.data.SNPDataProtos.Answers.GenotypeObs;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -25,24 +27,22 @@ public class SNPAnswerMap {
 
   private Set<String> genotypes;
 
-	private String answers;
-
 	private Map<Integer, String> regularGene;
 	
 	private Map<Integer, String> invertedGene;
 
-  public SNPAnswerMap(String answers) {
+	public SNPAnswerMap(Answers answers) {
     map = new HashMap<String, String>();
 		genotypes = new HashSet<String>();
-		this.answers = answers;
 
-		try {
-			loadAnswers();
-		} catch (IOException ioe) {
-			System.err.println("Error in loading answers!");
-			ioe.printStackTrace();
+		// Load the proto into the answer map.
+		for (GenotypeObs g : answers.getObservedList()) {
+			map.put(g.getPersonId(), g.getGenotype().trim());
 		}
-  }
+		
+		regularGene = createGenotypeMap(false);
+		invertedGene = createGenotypeMap(true);
+	}
 
 	private boolean isHomozygous(String gene) {
 		if (gene.length() != 2) {
@@ -107,25 +107,6 @@ public class SNPAnswerMap {
 		}
 
 		return clusterToGene;
-	}
-
-	private void loadAnswers() throws IOException {
-		BufferedReader read = new BufferedReader(new StringReader(answers));
-		String buffer = null;
-
-		final String SEPERATOR = " ";
-		final int PERSON_ID = 0;
-		final int ANSWER = 1;
-
-		while ((buffer = read.readLine()) != null) {
-			String[] data = buffer.split(SEPERATOR);
-			String answer = data[ANSWER].trim();
-			genotypes.add(answer);
-			map.put(data[PERSON_ID], answer);
-		}
-
-		regularGene = createGenotypeMap(false);
-		invertedGene = createGenotypeMap(true);
 	}
 
 	/**
